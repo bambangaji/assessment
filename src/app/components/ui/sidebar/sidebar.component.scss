@@ -1,0 +1,37 @@
+/* sidebar.component.css */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Start off hidden */
+    height: 100%;
+    width: 250px;
+    background-color: #343a40; /* Dark background color */
+    color: #fff; /* White text color */
+    transition: right 0.3s; /* Smooth transition effect */
+  }
+  
+  .sidebar-content {
+    padding-top: 20px;
+  }
+  
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+  
+  .sidebar-title {
+    margin-bottom: 0;
+  }
+  
+  .list-group-item {
+    background-color: #343a40; /* Dark background color for items */
+    border-color: #343a40; /* Dark border color for items */
+  }
+  
+  .list-group-item.active {
+    background-color: #23272b; /* Darker background color for active item */
+    border-color: #23272b; /* Darker border color for active item */
+  }
+  
