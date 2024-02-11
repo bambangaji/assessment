@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    max-width: 100% !important;
+  }
+  
+  .sidebar-container {
+    flex: 0 0 auto; /* Prevent the sidebar from growing or shrinking */
+  }
+  
+  .content {
+    min-height: 85.6vh;
+    flex: 1; /* Allow the content to grow and fill available space */
+  }
+  

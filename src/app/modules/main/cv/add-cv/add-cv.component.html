@@ -1,0 +1,60 @@
+<div class="row justify-content-center align-items-center">
+  <div class="card col-md-7 col-lg-8 my-3 p-2">
+    <h4 class="mb-3">Add CV Data</h4>
+    <form class="needs-validation" [formGroup]="cvForm" (submit)="onSubmit()">
+      <div class="row g-3">
+        <div class="form-group col-md-12">
+          <label for="title"><span class="text-danger">*</span>Title:</label>
+          <input type="text" id="title" formControlName="title" class="form-control" required>
+          <div *ngIf="cvForm.get('title')?.errors && cvForm.get('title')?.touched" class="text-danger">
+            Title is required
+          </div>
+        </div>
+        <div class="form-group col-md-12">
+          <label for="user"><span class="text-danger">*</span>User:</label>
+          <input type="text" id="user" formControlName="user" class="form-control" required>
+          <div *ngIf="cvForm.get('user')?.errors && cvForm.get('user')?.touched" class="text-danger">
+            User is required
+          </div>
+        </div>
+        <div class="form-group col-md-12">
+          <label for="body"><span class="text-danger">*</span>Body:</label>
+          <input type="text" id="body" formControlName="body" class="form-control" required>
+          <div *ngIf="cvForm.get('body')?.errors && cvForm.get('body')?.touched" class="text-danger">
+            Body is required
+          </div>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="daterelease"><span class="text-danger">*</span> Date Release:</label>
+          <input id="daterelease" formControlName="daterelease" class="form-control" required readonly
+            (click)="openPicker()">
+          <div *ngIf="cvForm.get('daterelease')?.errors && cvForm.get('daterelease')?.touched" class="text-danger">
+            Date Release is required
+          </div>
+        </div>
+        <div class="form-group" style="display:none;">
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" (dateChange)="validateDateFormat($event)" [max]="maxDate" readonly
+              (click)="openPicker()">
+            <mat-datepicker touchUi #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        
+        <div class="form-group">
+          <label for="type"> <span class="text-danger">*</span> Skill:</label>
+          <ng-select formControlName="type" bindLabel="." [items]="dummyData" [searchable]="true"
+            class="custom-dropdown form-control form-select"></ng-select>
+          <input type="hidden" id="basicSalary" formControlName="type" class="form-control" required>
+          <div *ngIf="cvForm.get('type')?.errors && cvForm.get('type')?.touched" class="text-danger">
+            Skill is required
+          </div>
+        </div>
+
+      </div>
+      <hr class="my-4">
+
+      <button class="w-100 btn btn-primary btn-lg" type="submit">Submit</button>
+    </form>
+  </div>
+</div>

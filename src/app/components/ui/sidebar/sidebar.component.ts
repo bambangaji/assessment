@@ -8,8 +8,8 @@ import { UiService } from 'src/app/services/ui/ui.service';
   styleUrls: ['./sidebar.component.scss'],
   animations: [
     trigger('slideInOut', [
-      state('in', style({ right: 0 })),
-      state('out', style({ right: '-250px' })),
+      state('in', style({ left: 0 })),
+      state('out', style({ left: '-350px' })),
       transition('in => out', animate('400ms ease-out')),
       transition('out => in', animate('400ms ease-in'))
     ])
@@ -24,5 +24,8 @@ export class SidebarComponent {
     this.uiService.sidebarState$.subscribe(state => {
       this.sidebarState = state;
     });
+  }
+  toggleSidebar(): void {
+    this.uiService.toggleSidebar();
   }
 }

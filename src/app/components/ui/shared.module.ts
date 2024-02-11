@@ -11,6 +11,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import {MatIconModule} from '@angular/material/icon';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouterModule } from '@angular/router';
+import { FooterComponent } from './footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Import other external components
 
 @NgModule({
@@ -19,9 +24,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     HeaderComponent,
     LoadingSpinnerComponent,
     SidebarComponent,
+    FooterComponent,
     // Declare other external components
   ],
-  imports: [CommonModule],
+  imports: [CommonModule,FontAwesomeModule,    RouterModule.forRoot([]),ReactiveFormsModule ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
     ModalComponent,
@@ -33,8 +39,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule, 
+    MatIconModule,
     SidebarComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    FooterComponent
     // Export other external components
   ],
 })

@@ -21,8 +21,9 @@ export class UiService {
     this.isLoadingSubject.next(false);
   }
 
-
   toggleSidebar(): void {
+    console.log("toggle value:"+this.sidebarStateSubject.value);
+    
     this.sidebarStateSubject.next(!this.sidebarStateSubject.value);
   }
 }

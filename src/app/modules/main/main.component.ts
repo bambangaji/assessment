@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { UiService } from 'src/app/services/ui/ui.service';
 
 @Component({
   selector: 'app-main',
@@ -6,10 +7,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-  @Input() userName: string = '';
-  @Output() logoutClicked: EventEmitter<void> = new EventEmitter<void>();
+  sidebarState = false;
 
-  logout(): void {
-    this.logoutClicked.emit();
+  constructor(private uiService: UiService) {}
+
+  ngOnInit(): void {
+    this.uiService.sidebarState$.subscribe(state => {
+      this.sidebarState = state;
+    });
   }
 }

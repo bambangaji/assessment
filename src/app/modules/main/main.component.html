@@ -1,16 +1,13 @@
-
 <app-header></app-header>
 
-<div class="container">
-  <app-sidebar></app-sidebar>
+<div class="container" [ngClass]="{'mx-0':sidebarState}">
+  <div class="sidebar-container">
+    <app-sidebar *ngIf="sidebarState"></app-sidebar>
+  </div>
 
-  <div class="content">
+  <div class="content"  [ngClass]="{'ms-3':sidebarState}">
     <router-outlet></router-outlet>
   </div>
 
-  <div class="profile-logout">
-    <span>{{ userName }}</span>
-    <button (click)="logout()">Logout</button>
-  </div>
-
 </div>
+<app-footer></app-footer>

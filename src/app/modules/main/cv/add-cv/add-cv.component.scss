@@ -1,0 +1,46 @@
+/* your.component.css */
+.custom-dropdown {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff; /* Set background color */
+  }
+  
+  .custom-dropdown .ng-select-container {
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .custom-dropdown .ng-input {
+    height: 36px;
+  }
+  
+  .custom-dropdown .ng-placeholder {
+    color: #999;
+  }
+  
+  .custom-dropdown ::ng-deep .ng-dropdown-panel-items {
+    border: 1px solid #ccc; /* Add border to the dropdown panel */
+    border-radius: 5px;
+    background-color: #fff; /* Set background color for the dropdown panel */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow for a subtle effect */
+  }
+  
+  .custom-dropdown ::ng-deep .ng-option {
+    padding: 8px;
+    border-bottom: 1px solid #ddd; /* Add border between options */
+  }
+  
+  .custom-dropdown ::ng-deep .ng-option:last-child {
+    border-bottom: none; /* Remove border for the last option */
+  }
+  
+  .custom-dropdown ::ng-deep .ng-option.selected {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .custom-dropdown ::ng-deep .ng-option:hover {
+    background-color: #f2f2f2;
+  }
+  

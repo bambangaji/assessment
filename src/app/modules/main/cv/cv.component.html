@@ -1,0 +1,97 @@
+<div class="card mt-3">
+  <main class="col-md-12 px-md-4">
+    <div class="chartjs-size-monitor">
+      <div class="chartjs-size-monitor-expand">
+        <div class=""></div>
+      </div>
+      <div class="chartjs-size-monitor-shrink">
+        <div class=""></div>
+      </div>
+    </div>
+    <div
+      class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h4>Profile</h4>
+      <button class="btn btn-primary" (click)="addNewCV()">Add</button>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <h4>List CV</h4>
+      </div>
+      <div class="col-md-4">
+        <input type="text" class="form-control form-control-sm" placeholder="Search" [(ngModel)]="searchQuery"
+          (input)="onSearch()">
+      </div>
+      <div class="col-md-4 d-flex">
+        <div class="btn-group" role="group">
+          <p for="pageSize" class="me-3">Show: </p>
+          <button class="btn btn-sm btn-outline-secondary" [class.active]="pageSize === 10"
+            (click)="onPageSizeChange(10)">10</button>
+          <button class="btn btn-sm btn-outline-secondary" [class.active]="pageSize === 20"
+            (click)="onPageSizeChange(20)">20</button>
+          <button class="btn btn-sm btn-outline-secondary" [class.active]="pageSize === 30"
+            (click)="onPageSizeChange(30)">30</button>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive" style="overflow-y: auto;">
+      <table class="table table-striped table-sm" style="width:100%">
+        <thead>
+          <tr>
+            <th style="width: 5%;"># <fa-icon [icon]="['fas', 'caret-down']" class="cursor-pointer link-primary"
+                (click)="onSort('id')"></fa-icon>
+            </th>
+            <th style="width: 15%;">Title<fa-icon [icon]="['fas', 'caret-down']" class="cursor-pointer link-primary"
+                (click)="onSort('title')"></fa-icon>
+            </th>
+            <th style="width: 30%;">Body<fa-icon [icon]="['fas', 'caret-down']" class="cursor-pointer link-primary"
+                (click)="onSort('body')"></fa-icon>
+            </th>
+            <th style="width: 15%;">Type <fa-icon [icon]="['fas', 'caret-down']" class="cursor-pointer link-primary"
+                (click)="onSort('type')"></fa-icon>
+            </th>
+            <th colspan="3">Action </th>
+          </tr>
+        </thead>
+
+
+        <tbody>
+          <tr *ngFor="let cv of listCV">
+            <td>{{cv.id}}</td>
+            <td>{{cv.title}}</td>
+            <td>{{cv.body}}</td>
+            <td>{{cv.type}}</td>
+            <td>
+              <div class="row text-center">
+                <div class="col-md-3 float-right align-items-center bg-primary text-white rounded cursor-pointer"
+                  (click)="toDetailPage(2)">
+                  <div class="col align-items-center p-1">
+                    <p class="text-sm color-orange"> Details
+                      <span class="pl-4"><i class="fas fa-arrow-right ml-3 color-orange"></i></span>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 mx-3 float-right align-items-center bg-danger rounded cursor-pointer"
+                  (click)="openModal('Delete',cv.title)">
+                  <div class="col align-items-center p-1">
+                    <p class="text-sm  text-white"> Delete
+                      <span class="pl-4"><i class="fas fa-trash ml-3 text-white"></i></span>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 float-right align-items-center bg-warning rounded  cursor-pointer"
+                  (click)="openModal('Edit',cv.title)">
+                  <div class="col align-items-center p-1">
+                    <p class="text-sm  text-white"> Edit
+                      <span class="pl-4"><i class="fas fa-pen ml-3 text-white"></i></span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+<app-modal #modalRef></app-modal>

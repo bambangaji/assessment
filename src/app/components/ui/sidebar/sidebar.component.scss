@@ -1,37 +1,46 @@
-/* sidebar.component.css */
+// sidebar.component.scss
 .sidebar {
-    position: fixed;
-    top: 0;
-    right: -250px; /* Start off hidden */
-    height: 100%;
-    width: 250px;
-    background-color: #343a40; /* Dark background color */
-    color: #fff; /* White text color */
-    transition: right 0.3s; /* Smooth transition effect */
-  }
-  
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 250px; /* Adjust width as needed */
+  height: 100%;
+  background-color: white; /* Set background color to white */
+  border-right: 1px solid #ddd; /* Add a border for better separation */
+  z-index: 1000;
+  padding: 20px;
+
   .sidebar-content {
-    padding-top: 20px;
+    width: 100%;
+    height: 100%;
   }
-  
+
   .sidebar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    margin-bottom: 20px;
   }
-  
-  .sidebar-title {
-    margin-bottom: 0;
+
+  .list-group {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .list-group-item {
+      padding: 10px 15px;
+      color: #333;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+
+      &.active {
+        background-color: #007bff;
+        color: white;
+      }
+    }
   }
-  
-  .list-group-item {
-    background-color: #343a40; /* Dark background color for items */
-    border-color: #343a40; /* Dark border color for items */
-  }
-  
-  .list-group-item.active {
-    background-color: #23272b; /* Darker background color for active item */
-    border-color: #23272b; /* Darker border color for active item */
-  }
-  
+}

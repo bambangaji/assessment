@@ -1,27 +1,22 @@
-# Assessment
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
-## Development server
+## How To Run This project
+run `npm install` in the root directory
+run `ng serve` to run dev server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Information
+This app using angular material to using the datepicker, u can see the document https://material.angular.io/
+Style framework using bootstrap u can see the document https://getbootstrap.com/docs/5.3/getting-started/introduction/
 
 ## Build
+run `ng build` to build this project into web and location in dist folder in the application root directory with all the files that a hosting service needs for serving your application.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Pattern MVVM
+u must create model and service in same file so it will easy to manage;
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Global management state 
+for ui
+-- edit in services/ui/ui.service.ts
+for config
+-- edit in servicse/config/config.service.ts

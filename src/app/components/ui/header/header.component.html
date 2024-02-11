@@ -1,8 +1,9 @@
-<header class="header bg-white shadow-sm">
-    <div class="container-fluid">
-      <button class="btn btn-link" (click)="toggleSidebar()">
-        <i class="bi bi-search"></i>
-      </button>
-      <span class="navbar-brand">Your Logo</span>
-    </div>
-  </header>
+<div class="col w-100 text-center border-bottom shadow-sm bg-white position-relative">
+  <div class="d-flex align-items-center justify-content-center" style="height: 50px;">
+    
+    <p class="font-weight-bold  mt-2">EMPLOYEE DASH</p>
+  </div>
+  <div class="position-absolute top-0 start-0 mt-3 ms-3 cursor-pointer hover-light link-primary" (click)="toggleSidebar()">
+    <fa-icon [icon]="['fas', 'bars']" size="xl"> </fa-icon>
+  </div>
+</div>
