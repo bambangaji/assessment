@@ -3,36 +3,55 @@
     <h4 class="mb-3">Add CV Data</h4>
     <form class="needs-validation" [formGroup]="cvForm" (submit)="onSubmit()">
       <div class="row g-3">
-        <div class="form-group col-md-12">
-          <label for="title"><span class="text-danger">*</span>Title:</label>
-          <input type="text" id="title" formControlName="title" class="form-control" required>
-          <div *ngIf="cvForm.get('title')?.errors && cvForm.get('title')?.touched" class="text-danger">
-            Title is required
+        <div class="form-group col-md-6">
+          <label for="firstName"><span class="text-danger">*</span>First Name:</label>
+          <input type="text" id="firstName" formControlName="firstName" class="form-control" required>
+          <div *ngIf="cvForm.get('firstName')?.errors && cvForm.get('firstName')?.touched" class="text-danger">
+            First Name is required
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="lastName"><span class="text-danger">*</span>Last Name:</label>
+          <input type="text" id="lastName" formControlName="lastName" class="form-control" required>
+          <div *ngIf="cvForm.get('lastName')?.errors && cvForm.get('lastName')?.touched" class="text-danger">
+            Last Name is required
           </div>
         </div>
         <div class="form-group col-md-12">
-          <label for="user"><span class="text-danger">*</span>User:</label>
-          <input type="text" id="user" formControlName="user" class="form-control" required>
-          <div *ngIf="cvForm.get('user')?.errors && cvForm.get('user')?.touched" class="text-danger">
-            User is required
+          <label for="address"><span class="text-danger">*</span>Address:</label>
+          <input type="text" id="address" formControlName="address" class="form-control" required>
+          <div *ngIf="cvForm.get('address')?.errors && cvForm.get('address')?.touched" class="text-danger">
+            Address is required
           </div>
         </div>
         <div class="form-group col-md-12">
-          <label for="body"><span class="text-danger">*</span>Body:</label>
-          <input type="text" id="body" formControlName="body" class="form-control" required>
-          <div *ngIf="cvForm.get('body')?.errors && cvForm.get('body')?.touched" class="text-danger">
-            Body is required
+          <label for="email"><span class="text-danger">*</span>Email:</label>
+          <input type="email" id="body" formControlName="email" class="form-control" required>
+          <div *ngIf="cvForm.get('email')?.errors && cvForm.get('email')?.touched" class="text-danger">
+            Email is required
           </div>
         </div>
 
         <div class="form-group col-md-6">
-          <label for="daterelease"><span class="text-danger">*</span> Date Release:</label>
-          <input id="daterelease" formControlName="daterelease" class="form-control" required readonly
+          <label for="birthDate"><span class="text-danger">*</span>Birth Date </label>
+          <input id="birthDate" formControlName="birthDate" class="form-control" required readonly
             (click)="openPicker()">
-          <div *ngIf="cvForm.get('daterelease')?.errors && cvForm.get('daterelease')?.touched" class="text-danger">
-            Date Release is required
+          <div *ngIf="cvForm.get('birthDate')?.errors && cvForm.get('birthDate')?.touched" class="text-danger">
+            Birth Date Release is required
           </div>
         </div>
+
+        <div class="form-group  col-md-6">
+          <label for="gender"><span class="text-danger">*</span> Gender:</label>
+          <select id="gender"  formControlName="gender" class="form-control"  required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          <div *ngIf="cvForm.get('gender')?.errors && cvForm.get('gender')?.touched" class="text-danger">
+            Gender Release is required
+          </div>
+        </div>
+
         <div class="form-group" style="display:none;">
           <mat-form-field>
             <input matInput [matDatepicker]="picker" (dateChange)="validateDateFormat($event)" [max]="maxDate" readonly
@@ -42,11 +61,11 @@
         </div>
         
         <div class="form-group">
-          <label for="type"> <span class="text-danger">*</span> Skill:</label>
-          <ng-select formControlName="type" bindLabel="." [items]="dummyData" [searchable]="true"
+          <label for="skill"> <span class="text-danger">*</span> Skill:</label>
+          <ng-select formControlName="skill" bindLabel="." [items]="dummyData" [searchable]="true"
             class="custom-dropdown form-control form-select"></ng-select>
-          <input type="hidden" id="basicSalary" formControlName="type" class="form-control" required>
-          <div *ngIf="cvForm.get('type')?.errors && cvForm.get('type')?.touched" class="text-danger">
+          <input type="hidden" id="basicSalary" formControlName="skill" class="form-control" required>
+          <div *ngIf="cvForm.get('skill')?.errors && cvForm.get('skill')?.touched" class="text-danger">
             Skill is required
           </div>
         </div>

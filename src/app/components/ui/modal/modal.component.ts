@@ -17,7 +17,7 @@ export class ModalComponent {
   closeModal() {
     this.isVisible = false;
     if (this.title == 'Delete') {
-      this.CvModelService.deleteData(10).subscribe()
+      this.CvModelService.deleteData().subscribe()
      }
     this.closed.emit();
   }

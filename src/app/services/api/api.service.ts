@@ -1,6 +1,6 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable, of, throwError } from 'rxjs';
 import { ConfigService } from '../config/config.service';
 
 @Injectable({
@@ -13,18 +13,7 @@ export class ApiService {
 
 
   getData(url: string): Observable<any> {
-    return this.http.get<any>(url).pipe(
-      map(response => {
-        console.log("Response:");
-        console.log(response);
-        return response;
-      }),
-      catchError(error => {
-        console.error("Error occurred:", error);
-        // You can throw a custom error or return a default value here
-        return throwError("An error occurred while fetching data.");
-      })
-    );
+    return of()
   }
   getData101(url: string): Observable<any> {
     return this.http.get<any>(url + '/1').pipe(

@@ -40,14 +40,14 @@
             <th style="width: 5%;"># <fa-icon [icon]="['fas', 'caret-down']" class="cursor-pointer link-primary"
                 (click)="onSort('id')"></fa-icon>
             </th>
-            <th style="width: 15%;">Title<fa-icon [icon]="['fas', 'caret-down']" class="cursor-pointer link-primary"
-                (click)="onSort('title')"></fa-icon>
+            <th style="width: 15%;">Name<fa-icon [icon]="['fas', 'caret-down']" class="cursor-pointer link-primary"
+                (click)="onSort('firstName')"></fa-icon>
             </th>
-            <th style="width: 30%;">Body<fa-icon [icon]="['fas', 'caret-down']" class="cursor-pointer link-primary"
-                (click)="onSort('body')"></fa-icon>
+            <th style="width: 30%;">Email<fa-icon [icon]="['fas', 'caret-down']" class="cursor-pointer link-primary"
+                (click)="onSort('email')"></fa-icon>
             </th>
-            <th style="width: 15%;">Type <fa-icon [icon]="['fas', 'caret-down']" class="cursor-pointer link-primary"
-                (click)="onSort('type')"></fa-icon>
+            <th style="width: 15%;">Skill <fa-icon [icon]="['fas', 'caret-down']" class="cursor-pointer link-primary"
+                (click)="onSort('skill')"></fa-icon>
             </th>
             <th colspan="3">Action </th>
           </tr>
@@ -57,9 +57,9 @@
         <tbody>
           <tr *ngFor="let cv of listCV">
             <td>{{cv.id}}</td>
-            <td>{{cv.title}}</td>
-            <td>{{cv.body}}</td>
-            <td>{{cv.type}}</td>
+            <td>{{cv.firstName}} - {{cv.lastName}}</td>
+            <td>{{cv.email}}</td>
+            <td>{{cv.skill}}</td>
             <td>
               <div class="row text-center">
                 <div class="col-md-3 float-right align-items-center bg-primary text-white rounded cursor-pointer"
@@ -71,7 +71,7 @@
                   </div>
                 </div>
                 <div class="col-md-3 mx-3 float-right align-items-center bg-danger rounded cursor-pointer"
-                  (click)="openModal('Delete',cv.title)">
+                  (click)="openModal('Delete',cv.firstName,cv.id)">
                   <div class="col align-items-center p-1">
                     <p class="text-sm  text-white"> Delete
                       <span class="pl-4"><i class="fas fa-trash ml-3 text-white"></i></span>
@@ -79,7 +79,7 @@
                   </div>
                 </div>
                 <div class="col-md-3 float-right align-items-center bg-warning rounded  cursor-pointer"
-                  (click)="openModal('Edit',cv.title)">
+                  (click)="openModal('Edit',cv.firstName,cv.id)">
                   <div class="col align-items-center p-1">
                     <p class="text-sm  text-white"> Edit
                       <span class="pl-4"><i class="fas fa-pen ml-3 text-white"></i></span>

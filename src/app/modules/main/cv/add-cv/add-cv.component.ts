@@ -18,12 +18,13 @@ export class AddCvComponent {
   selectedValue?: string;
   constructor(private router: Router, private cvService: CvService, private fb: FormBuilder) {
     this.cvForm = this.fb.group({
-      title: new FormControl('', Validators.required),
-      body: new FormControl('', Validators.required),
-      user: new FormControl('', Validators.required),
-      daterelease: new FormControl('', Validators.required),
-      type: new FormControl('', Validators.required),
-      id:1
+      firstName: new FormControl('', Validators.required),
+      lastName: new FormControl('', Validators.required),
+      birthDate: new FormControl('', Validators.required),
+      address: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      skill: new FormControl('', Validators.required),
+      gender: new FormControl('', Validators.required)
     });
   }
   isDatePickerVisible = false;
@@ -68,15 +69,18 @@ export class AddCvComponent {
     return null;
   }
   dummyData = [
-    'Politik',
-    'Agama',
-    'Ekonomi'
+    'Angular',
+    'Javascript',
+    'Dart',
+    'Ionic',
+    'Flutter',
+    'DotNet',
   ];
 
   validateDateFormat(event: any): void {
     const selectedDate = event.value;
     const formattedDate = this.formatDate(selectedDate);
-    this.cvForm.get('daterelease')?.setValue(formattedDate);
+    this.cvForm.get('birthDate')?.setValue(formattedDate);
   }
   formatDate(date: Date): string {
     const day = date.getDate().toString().padStart(2, '0');

@@ -11,12 +11,11 @@ Style framework using bootstrap u can see the document https://getbootstrap.com/
 ## Build
 run `ng build` to build this project into web and location in dist folder in the application root directory with all the files that a hosting service needs for serving your application.
 
-
-## Pattern MVVM
-u must create model and service in same file so it will easy to manage;
-
 ## Global management state 
 for ui
--- edit in services/ui/ui.service.ts
+-- edit in services/ui/ui.service.ts u can add like bottomsheet,loading,etc
 for config
 -- edit in servicse/config/config.service.ts
+
+# Environtment 
+`apiUrl` for base API

@@ -28,16 +28,12 @@ export class CvComponent {
   constructor(private CvModelService: CvService, private router: Router, private configService: ConfigService) {
 
   }
-  openModal(title: string, content: string) {
+  openModal(title: string, content: string, id: number) {
+    this.CvModelService.setDetailCV(id)
     this.modalRef.show(title, content);
   }
   ngOnInit() {
-    this.CvModelService.loadDataCv().subscribe(data => {
-      this.listCV = data;
-      this.CvModelService.loadDataCv101().subscribe(data101 => {
-        console.log(this.listCV);
-      })
-    });
+    this.listCV = this.CvModelService.listCV;
   }
   ngOnDestroy(): void {
     this.unsubscribe$.next();
@@ -91,7 +87,7 @@ export class CvComponent {
   }
 
   toDetailPage(CvModelId: number) {
-    console.log(this.listCV);
+    this.CvModelService.setDetailCV(CvModelId)
     this.router.navigate(['/main/detail-cv']);
   }
 }
