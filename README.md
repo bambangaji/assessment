@@ -19,3 +19,8 @@ for config
 
 # Environtment 
 `apiUrl` for base API
+
+# Service
+For routing service u must edit in
+Services/routing/routing.service.ts
+add function routing in this file 
