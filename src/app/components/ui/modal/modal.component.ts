@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { CvService } from 'src/app/models/cv-model/cv-model';
+import { EmployeeService } from 'src/app/models/user/employee-model';
 
 @Component({
   selector: 'app-modal',
@@ -11,13 +11,13 @@ export class ModalComponent {
   @Input() content: string = '';
   @Output() closed = new EventEmitter<void>();
   isVisible: boolean = false;
-  constructor(private CvModelService: CvService) {
+  constructor(private EmployeeModelService: EmployeeService) {
 
   }
   closeModal() {
     this.isVisible = false;
     if (this.title == 'Delete') {
-      this.CvModelService.deleteData().subscribe()
+      this.EmployeeModelService.deleteData()
      }
     this.closed.emit();
   }

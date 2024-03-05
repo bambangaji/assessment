@@ -14,11 +14,12 @@ import { SharedModule } from './components/ui/shared.module';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { fas  }  from '@fortawesome/free-solid-svg-icons';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CvComponent } from './modules/main/cv/cv.component';
 import { SettingsComponent } from './modules/main/settings/settings.component';
-import { DetailCvComponent } from './modules/main/cv/detail-cv/detail-cv.component';
-import { AddCvComponent } from './modules/main/cv/add-cv/add-cv.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EmployeeComponent } from './modules/main/employee/employee.component';
+import { EmployeeDetailComponent } from './modules/main/employee/employee-detail/employee-detail.component';
+import { EmployeeAddComponent } from './modules/main/employee/employee-add/employee-add.component';
+import { PipesModule } from './components/pipes/pipes.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,10 +27,11 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     DashboardComponent,
     ProfileComponent,
-    CvComponent,
     SettingsComponent,
-    DetailCvComponent,
-    AddCvComponent,
+    EmployeeComponent,
+    EmployeeDetailComponent,
+    EmployeeAddComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     NgbModule,
     ReactiveFormsModule,
-    HttpClientModule 
+    HttpClientModule,
+    PipesModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

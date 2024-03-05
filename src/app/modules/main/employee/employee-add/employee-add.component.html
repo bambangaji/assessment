@@ -1,0 +1,95 @@
+<div class="row justify-content-center align-items-center">
+  <div class="card col-md-7 col-lg-8 my-3 p-2">
+    <h4 class="mb-3">{{isEdit?'Edit' :'Add'}} Employee Data</h4>
+    <form class="needs-validation" [formGroup]="employeeForm" (submit)="onSubmit()">
+      <div class="row g-3">
+        <div class="form-group col-md-12">
+          <label for="userName"><span class="text-danger">*</span>User Name:</label>
+          <input type="text" id="userName" formControlName="userName" class="form-control" required>
+          <div *ngIf="employeeForm.get('userName')?.errors && employeeForm.get('userName')?.touched" class="text-danger">
+            Username is required
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="firstName"><span class="text-danger">*</span>First Name:</label>
+          <input type="text" id="firstName" formControlName="firstName" class="form-control" required>
+          <div *ngIf="employeeForm.get('firstName')?.errors && employeeForm.get('firstName')?.touched" class="text-danger">
+            First Name is required
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="lastName"><span class="text-danger">*</span>Last Name:</label>
+          <input type="text" id="lastName" formControlName="lastName" class="form-control" required>
+          <div *ngIf="employeeForm.get('lastName')?.errors && employeeForm.get('lastName')?.touched" class="text-danger">
+            Last Name is required
+          </div>
+        </div>
+        <div class="form-group col-md-12">
+          <label for="email"><span class="text-danger">*</span>Email:</label>
+          <input type="email" id="body" formControlName="email" class="form-control" required>
+          <div *ngIf="employeeForm.get('email')?.errors && employeeForm.get('email')?.touched" class="text-danger">
+            Email is required
+          </div>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="basicSalary"><span class="text-danger">*</span>Basic Salary:</label>
+          <input type="number" id="body" formControlName="basicSalary" class="form-control" required>
+          <div *ngIf="employeeForm.get('basicSalary')?.errors && employeeForm.get('basicSalary')?.touched" class="text-danger">
+            Basic Salary is required
+          </div>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="birthDate"><span class="text-danger">*</span>Birth Date </label>
+          <input id="birthDate" formControlName="birthDate" class="form-control" required readonly
+            (click)="openPicker()">
+          <div *ngIf="employeeForm.get('birthDate')?.errors && employeeForm.get('birthDate')?.touched" class="text-danger">
+            Birth Date Release is required
+          </div>
+        </div>
+
+        <div class="form-group" style="display:none;">
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" (dateChange)="validateDateFormat($event)" [max]="maxDate" readonly
+              (click)="openPicker()">
+            <mat-datepicker touchUi #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="group"> <span class="text-danger">*</span> Group:</label>
+          <ng-select formControlName="group" bindLabel="." [items]="dummyData" [searchable]="true"
+            class="custom-dropdown form-control form-select"></ng-select>
+          <input type="hidden" id="basicSalary" formControlName="group" class="form-control" required>
+          <div *ngIf="employeeForm.get('group')?.errors && employeeForm.get('group')?.touched" class="text-danger">
+            Group is required
+          </div>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="group"> <span class="text-danger">*</span> Status:</label>
+          <ng-select formControlName="status" bindLabel="." [items]="['active','inactive']" [searchable]="true"
+            class="custom-dropdown form-control form-select"></ng-select>
+          <input type="hidden" id="basicSalary" formControlName="status" class="form-control" required>
+          <div *ngIf="employeeForm.get('status')?.errors && employeeForm.get('status')?.touched" class="text-danger">
+            Status is required
+          </div>
+        </div>
+
+        <div class="form-group col-md-12">
+          <label for="description"><span class="text-danger">*</span>Description:</label>
+          <input type="description" id="body" formControlName="description" class="form-control" required>
+          <div *ngIf="employeeForm.get('description')?.errors && employeeForm.get('description')?.touched" class="text-danger">
+            Description is required
+          </div>
+        </div>
+      </div>
+      <hr class="my-4">
+      <div style="justify-content: space-between;">
+        <button class="col-2 btn btn-primary" (click)="toList()">Back</button>
+        <button class="col-2 btn btn-primary ms-2" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

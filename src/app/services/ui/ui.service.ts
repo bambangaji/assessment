@@ -23,7 +23,6 @@ export class UiService {
 
   toggleSidebar(): void {
     console.log("toggle value:"+this.sidebarStateSubject.value);
-    
     this.sidebarStateSubject.next(!this.sidebarStateSubject.value);
   }
 }

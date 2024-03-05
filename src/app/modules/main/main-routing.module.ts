@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AddCvComponent } from './cv/add-cv/add-cv.component';
-import { CvComponent } from './cv/cv.component';
-import { DetailCvComponent } from './cv/detail-cv/detail-cv.component';
+import { Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { EmployeeAddComponent } from './employee/employee-add/employee-add.component';
+import { EmployeeDetailComponent } from './employee/employee-detail/employee-detail.component';
+import { EmployeeComponent } from './employee/employee.component';
 import { MainComponent } from './main.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
@@ -16,10 +15,10 @@ export const routesMain: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'settings', component: SettingsComponent },
-      { path: 'add-cv', component: AddCvComponent },
-      { path: 'detail-cv', component: DetailCvComponent },
+      { path: 'employee-add', component: EmployeeAddComponent },
+      { path: 'employee-detail', component: EmployeeDetailComponent },
       {
-        path: 'cv', component: CvComponent
+        path: 'employee', component: EmployeeComponent
       },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' } // Redirect to 'main' when navigating to 'employee'
     ]

@@ -1,0 +1,128 @@
+<div class="row justify-content-center align-items-center">
+  <div class="card col-md-7 col-lg-8 my-3 p-2">
+    <h4 class="mb-3">{{employeeData!.firstName}} - {{employeeData!.lastName}}</h4>
+    <hr>
+    <div class="row g-3">
+      <div class="row">
+        <div class="col-md-4">
+          <p><b>Username</b></p>
+        </div>
+        <div class="col-1">
+          :
+        </div>
+        <div class="col-md-7">
+          <p>
+            {{employeeData!.userName}}
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p><b>First Name</b></p>
+        </div>
+        <div class="col-1">
+          :
+        </div>
+        <div class="col-md-7">
+          <p>
+            {{employeeData!.firstName}}
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p><b>Last Name</b></p>
+        </div>
+        <div class="col-1">
+          :
+        </div>
+        <div class="col-md-7">
+          <p>
+            {{employeeData!.lastName}}
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p><b>Status</b></p>
+        </div>
+        <div class="col-1">
+          :
+        </div>
+        <div class="col-md-7">
+          <p>
+            {{employeeData!.status}}
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p><b>Email</b></p>
+        </div>
+        <div class="col-1">
+          :
+        </div>
+        <div class="col-md-7">
+          <p>
+            {{employeeData!.email}}
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p><b>Birth Date</b></p>
+        </div>
+        <div class="col-1">
+          :
+        </div>
+        <div class="col-md-7">
+          <p>
+            {{employeeData!.birthDate | date}}
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p><b>Group</b></p>
+        </div>
+        <div class="col-1">
+          :
+        </div>
+        <div class="col-md-7">
+          <p>
+            {{employeeData!.group}}
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p><b>Basic Salary</b></p>
+        </div>
+        <div class="col-1">
+          :
+        </div>
+        <div class="col-md-7">
+          <p>
+            {{employeeData!.basicSalary | customCurrency}}
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p><b>Description</b></p>
+        </div>
+        <div class="col-1">
+          :
+        </div>
+        <div class="col-md-7">
+          <p>
+            {{employeeData!.description}}
+          </p>
+        </div>
+      </div>
+
+    </div>
+    <hr class="my-4">
+    <button class="col-2 btn btn-primary" (click)="toList()">Oke</button>
+  </div>
+</div>
