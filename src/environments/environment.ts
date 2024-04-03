@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "",
+  apiUrl: "https://jsonplaceholder.typicode.com/photos",
   backOfficeKey: ""
 };
 

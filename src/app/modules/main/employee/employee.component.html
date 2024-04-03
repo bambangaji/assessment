@@ -11,11 +11,11 @@
     <div
       class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h4>Profile</h4>
-      <button class="btn btn-primary" (click)="addNewCV()">Add Employee</button>
+      <button class="btn btn-primary" (click)="addNewCV()" disabled>Add Employee</button>
     </div>
     <div class="row">
       <div class="col-md-3">
-        <h4>List Employee</h4>
+        <h4>List Dummy Data</h4>
       </div>
       <div class="col-md-6">
         <div class="d-flex">
@@ -56,35 +56,35 @@
             <th style="width: 5%;"># <fa-icon [icon]="['fas', 'caret-down']" class="cursor-pointer link-primary"
                 (click)="onSort('id')"></fa-icon>
             </th>
-            <th style="width: 15%;">Name<fa-icon [icon]="['fas', 'caret-down']" class="cursor-pointer link-primary"
+            <th style="width: 15%;">Title<fa-icon [icon]="['fas', 'caret-down']" class="cursor-pointer link-primary"
                 (click)="onSort('firstName')"></fa-icon>
             </th>
-            <th style="width: 15%;">Email<fa-icon [icon]="['fas', 'caret-down']" class="cursor-pointer link-primary"
+            <th style="width: 15%;">thumbnail Url<fa-icon [icon]="['fas', 'caret-down']" class="cursor-pointer link-primary"
                 (click)="onSort('email')"></fa-icon>
             </th>
-            <th style="width: 15%;">Basic Salary <fa-icon [icon]="['fas', 'caret-down']"
+            <th style="width: 15%;">URL <fa-icon [icon]="['fas', 'caret-down']"
                 class="cursor-pointer link-primary" (click)="onSort('basicSalary')"></fa-icon>
             </th>
-            <th style="width: 15%;">Group <fa-icon [icon]="['fas', 'caret-down']" class="cursor-pointer link-primary"
+            <!-- <th style="width: 15%;">Group <fa-icon [icon]="['fas', 'caret-down']" class="cursor-pointer link-primary"
                 (click)="onSort('group')"></fa-icon>
             </th>
-            <th style="width: 200px;">Action </th>
+            <th style="width: 200px;">Action </th> -->
           </tr>
         </thead>
 
 
         <tbody>
-          <tr *ngFor="let employee of listEmployee">
-            <td>{{employee.id}}</td>
-            <td>{{employee.firstName}} - {{employee.lastName}}</td>
-            <td>{{employee.email}}</td>
-            <td>{{employee.basicSalary | customCurrency}}</td>
-            <td>{{employee.group}}</td>
-            <td>
+          <tr *ngFor="let dummy of listDataDummy">
+            <td>{{dummy.id}}</td>
+            <td>{{dummy.title}} </td>
+            <td><img [src]="dummy.thumbnailUrl"> </td>
+            <!-- <td>{{dummy.basicSalary | customCurrency}}</td> -->
+            <td><a [href]="dummy.url">{{dummy.url}}</a></td>
+            <!-- <td>
               <div class="row text-center">
                 <div class="col-4 ps-0 pe-1">
                   <div class="float-right align-items-center bg-primary text-white rounded cursor-pointer"
-                    (click)="toDetailPage(employee.id)">
+                    (click)="toDetailPage(dummy.id)">
                     <div class="col align-items-center p-1">
                       <p class="text-sm color-orange"> Details
                         <span class="pl-4"><i class="fas fa-arrow-right ml-3 color-orange"></i></span>
@@ -95,7 +95,7 @@
 
                 <div class="col-4 ps-0 pe-1">
                   <div class="float-right align-items-center bg-danger rounded cursor-pointer"
-                    (click)="openModal('Delete',employee.firstName,employee.id)">
+                    (click)="openModal('Delete',dummy.firstName,dummy.id)">
                     <div class="col align-items-center p-1 mx-3">
                       <p class="text-sm  text-white"> Delete
                         <span class="pl-4"><i class="fas fa-trash ml-3 text-white"></i></span>
@@ -105,7 +105,7 @@
                 </div>
                 <div class="col-4 ps-0 pe-2">
                   <div class="float-right align-items-center bg-warning rounded  cursor-pointer"
-                    (click)="toEditPage(employee.id)">
+                    (click)="toEditPage(dummy.id)">
                     <div class="col align-items-center p-1">
                       <p class="text-sm  text-white"> Edit
                         <span class="pl-4"><i class="fas fa-pen ml-3 text-white"></i></span>
@@ -115,7 +115,7 @@
                 </div>
 
               </div>
-            </td>
+            </td> -->
           </tr>
         </tbody>
       </table>

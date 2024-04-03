@@ -104,7 +104,7 @@ export class EmployeeService {
         this.uiService.hide()
         return of(this.listEmployee)
     }
-
+    
     getlistEmployee(
         page: number,
         pageSize: number,
@@ -114,8 +114,6 @@ export class EmployeeService {
         group: string,
         status: string
     ): Observable<{ listEmployee: EmployeeModel[]; totalItems: number }> {
-        console.log("ssxx")
-        console.log(this.listEmployeeTemp);
         if (this.listEmployeeTemp.length > 1) {
             const paginatedEmployees = this.listEmployeeTemp;
             this.listEmployeeTemp = [];

@@ -13,7 +13,18 @@ export class ApiService {
 
 
   getData(url: string): Observable<any> {
-    return of()
+    return this.http.get<any>(url).pipe(
+      map(response => {
+        console.log("Response:");
+        console.log(response);
+        return response;
+      }),
+      catchError(error => {
+        console.error("Error occurred:", error);
+        // You can throw a custom error or return a default value here
+        return throwError("An error occurred while fetching data.");
+      })
+    );
   }
   getData101(url: string): Observable<any> {
     return this.http.get<any>(url + '/1').pipe(
@@ -37,7 +48,7 @@ export class ApiService {
       })
     );
   }
-  deleteData(url: any, id:any): Observable<any> {
+  deleteData(url: any, id: any): Observable<any> {
     return this.http.delete<any>(url + '/' + id).pipe(
       map((response: HttpResponse<any>) => {
         // Extract the data from the response

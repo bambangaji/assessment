@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ModalComponent } from 'src/app/components/ui/modal/modal.component';
+import { DummyModel } from 'src/app/models/dummyAPI/dummy';
+import { DummyModelService } from 'src/app/models/dummyAPI/dummy-model.service';
 import { EmployeeModel, EmployeeService } from 'src/app/models/user/employee-model';
 import { ConfigService } from 'src/app/services/config/config.service';
 import { RoutingService } from 'src/app/services/routing/routing.service';
@@ -18,6 +20,7 @@ export class EmployeeComponent {
   @ViewChild('modalRef') modalRef!: ModalComponent;
   loading = true;
   listEmployee: EmployeeModel[] = [];
+  listDataDummy: DummyModel[] = []
   pageSizeOptions: number[] = [10, 20, 30];
   pageSize: number = 10;
   currentPage: number = 1;
@@ -45,7 +48,7 @@ export class EmployeeComponent {
     'inactive',
     'All'
   ];
-  constructor(private EmployeeModelService: EmployeeService, private routing: RoutingService) {
+  constructor(private EmployeeModelService: EmployeeService, private routing: RoutingService, private DummyModelService: DummyModelService) {
 
   }
   openModal(title: string, content: string, id: number) {
@@ -54,10 +57,20 @@ export class EmployeeComponent {
   }
   ngOnInit() {
     this.loadEmployeeModels()
+    this.loadData()
   }
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+  }
+  loadData() {
+    this.DummyModelService.loadData().subscribe(result => {
+      // this.listEmployee = result.listEmployee;
+      // this.totalItems = result.totalItems;
+      this.listDataDummy=result
+      this.totalItems=this.listDataDummy.length
+      console.log(this.listDataDummy[0])
+    })
   }
   loadEmployeeModels(): void {
     console.log("load")
